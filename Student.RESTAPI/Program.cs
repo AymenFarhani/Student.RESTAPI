@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Student.RESTAPI.Data;
+using Student.RESTAPI.Middleware;
 using Student.RESTAPI.Repositories;
 using Student.RESTAPI.Services;
 
@@ -26,7 +27,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
-
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
