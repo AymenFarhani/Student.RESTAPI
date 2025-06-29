@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Student.RESTAPI.Models;
 using Student.RESTAPI.Services;
@@ -7,6 +8,7 @@ namespace Student.RESTAPI.Controllers
 {
     [Route("api/v1/courses")]
     [ApiController]
+    [Authorize]
     public class CoursesController : ControllerBase
     {
         private readonly ICourseService _courseService;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Student.RESTAPI.Services;
 
@@ -6,6 +7,7 @@ namespace Student.RESTAPI.Controllers
 {
     [Route("api/v1/students")]
     [ApiController]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
