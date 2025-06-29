@@ -7,7 +7,7 @@ namespace Student.RESTAPI.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [StringLength(maximumLength:50)]
+        [StringLength(maximumLength:50, ErrorMessage = "FullName cannot exceed 50 characters.")]
         public string FullName { get; set; }
         [Required]
         [EmailAddress]
@@ -17,5 +17,8 @@ namespace Student.RESTAPI.Models
         public DateOnly DateOfBirth { get; set; }
         [Required]
         public string Address { get; set; }
+
+        // Navigation property for the join table
+        public ICollection<StudentCourse> StudentCourses { get; set; }
     }
 }
